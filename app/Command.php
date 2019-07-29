@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use SensioLabs\AnsiConverter\AnsiToHtmlConverter;
-use SensioLabs\AnsiConverter\Theme\SolarizedTheme;
 
 class Command extends Model
 {
@@ -27,9 +26,6 @@ class Command extends Model
 
     public function toAnsiHtml(): string
     {
-        $theme = new SolarizedTheme();
-        $converter = new AnsiToHtmlConverter();
-
-        return $converter->convert($this->output);
+        return (new AnsiToHtmlConverter())->convert($this->output);
     }
 }
