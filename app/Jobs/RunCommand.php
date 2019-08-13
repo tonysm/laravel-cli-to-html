@@ -21,6 +21,13 @@ class RunCommand implements ShouldQueue
     const TIMEOUT_EXIT_CODE = 124;
 
     /**
+     * One second more than the command timeout.
+     *
+     * @var int
+     */
+    public $timeout = 5;
+
+    /**
      * @var \App\Command
      */
     public $command;
